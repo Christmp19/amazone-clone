@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
+import ProductFeed from "../components/ProductFeed";
 
-export default function Home() {
+export default function Home({products}) {
   return (
-    <div>
+    <div className="bg-gray-100">
       <Head>
         <title>Amazon</title>
         <meta charset="utf-8" />
@@ -20,12 +21,26 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      <main className='max-w-screen-2xl mx-auto'>
+      <main className="max-w-screen-lg mx-auto">
         {/* Banner */}
         <Banner />
         
         {/* ProductFeed */}
+        <ProductFeed products={products} />
+       
       </main>
     </div>
   );
+}
+
+export async function getServerSideProps(content) {
+  const products = await fetch('https://fakestoreapi.com/products').then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      products,
+    },
+  };
 }
