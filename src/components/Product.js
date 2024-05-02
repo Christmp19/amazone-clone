@@ -22,14 +22,14 @@ function Product({ id, title, price, description, category, image }) {
                 src={image}
                 height={200}
                 width={200}
-                objectFit="contain"
+                className='object-contain'
             />
             <h4 className='my-3'>{title}</h4>
             <div className="flex" >
                 {Array(rating)
                     .fill()
                     .map((_, i) => (
-                        <StarIcon className="h-5 w-4 text-yellow-500" />
+                        <StarIcon className="h-5 text-yellow-500" />
                     ))}
             </div>
 
@@ -41,7 +41,7 @@ function Product({ id, title, price, description, category, image }) {
             
             {hasPrime && (
                 <div className='flex items-center space-x-2 -mt-5'>
-                    <img className='w-8 h-6' src="/prime.png" alt="prime logo icon" />
+                    <img className='w-8' src="/prime.png" alt="prime logo icon" />
                     <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
                 </div>
             )}
