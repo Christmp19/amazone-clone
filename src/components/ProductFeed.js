@@ -6,7 +6,7 @@ function ProductFeed({ products }) {
         <div className='grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52 mx-auto'>
 
             {products
-                .splice(0,3)
+                .slice(0,3)
                 .map(({ id,
                     title,
                     price,
@@ -33,7 +33,7 @@ function ProductFeed({ products }) {
             
             <div className='md:col-span-2'>
                 {products
-                    .splice(3, 4)
+                    .slice(3, 4)
                     .map(({ id,
                         title,
                         price,
@@ -57,7 +57,7 @@ function ProductFeed({ products }) {
             </div>
 
             {products
-                .splice(4, products.length)
+                .slice(4, products.length)
                 .map(({ id,
                     title,
                     price,
